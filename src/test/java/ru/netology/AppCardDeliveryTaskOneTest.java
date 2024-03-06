@@ -1,7 +1,6 @@
 package ru.netology;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selectors;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -9,8 +8,8 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class AppCardDeliveryTaskOneTest {
 
@@ -28,9 +27,10 @@ public class AppCardDeliveryTaskOneTest {
         $("[data-test-id=phone] input").setValue("+79100000000");
         $("[data-test-id=agreement]").click();
         $("button.button").click();
-        $(".notification__content]").shouldBe(Condition.visible, Duration.ofSeconds(15))
-                .shouldHave(Condition.exactText("Встреча успешно забронирована на "+ planningDate));
-
+        $("[data-test-id=notification]")
+                .shouldHave(Condition.text("Успешно! Встреча успешно забронирована на " + planningDate),
+                        Duration.ofSeconds(15));                        //Загрузка не более 15 секунд
     }
+
 }
 
