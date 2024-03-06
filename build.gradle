@@ -19,6 +19,9 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
     // библиотека com.codeborne:selenide используется при построении проекта с использованием Selenide
     testImplementation 'com.codeborne:selenide:6.17.2'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools-v86
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-devtools-v86', version: '4.0.0-beta-2'
+
 
 
 
